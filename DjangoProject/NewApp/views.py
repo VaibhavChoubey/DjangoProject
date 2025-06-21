@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def WelcomePageView(request):
     return HttpResponse("Welcome to homepage")
+
+def UserName (request):
+    return render(request , "Username.html" , context={"Name":"Vaibhav"})

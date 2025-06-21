@@ -20,5 +20,6 @@ from NewApp import views as NewAppViews
 
 urlpatterns = [
     path('Welcome/', NewAppViews.WelcomePageView),
+    path('UserName/', NewAppViews.UserName),
 ]
 
