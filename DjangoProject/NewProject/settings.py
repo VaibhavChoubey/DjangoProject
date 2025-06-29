@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'NewApp'
 ]
 
 MIDDLEWARE = [
@@ -74,8 +75,10 @@ WSGI_APPLICATION = 'NewProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'EmployeeDB',
+        'USER' : 'root',
+        'PASSWORD' : 'Mummyandpapa12037#'
     }
 }
 
@@ -114,8 +117,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
+# Additional directories to look for static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'Static',
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 

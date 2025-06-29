@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+{% load static %}
 </title>
     UserName page
 </title>
 
 <body>
-    <h1> Hello I am {{Name}}, you are welcome</h1>
+    <h1> Hello I am {{UserDetails.Surname}}, you are welcome</h1>
+    <img src = "{% static 'Images/PinkFloyd.jpg' %}">
 </body>
 </html>
