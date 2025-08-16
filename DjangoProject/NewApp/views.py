@@ -9,5 +9,6 @@ def WelcomePageView(request):
 
 def UserName (request):
     UserDetails = NameDetails.objects.all()
-    UserDetails_Dict = {'UserDetails' : UserDetails }
-    return render(request , "Username.html" , context= UserDetails_Dict)
+    Name = NameDetails.objects.get(Name= 'Vaibhav')
+    UserDetails_Dict = {'UserDetails' : UserDetails, 'Name': Name.Name }
+    return render(request , "Username.html" ,  context = UserDetails_Dict)

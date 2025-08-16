@@ -5,7 +5,11 @@
 </title>
 
 <body>
-    <h1> Hello I am {{UserDetails.Surname}}, you are welcome</h1>
+    {% if UserDetails %}
+    <h1> Hello I am {{Name}}, you are welcome</h1>
     <img src = "{% static 'Images/PinkFloyd.jpg' %}">
+    {% else %}
+    <h1> Empty details </h1>h1>
+    {% endif %}
 </body>
 </html>
