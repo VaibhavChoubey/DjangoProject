@@ -26,7 +26,9 @@ def PerformanceDetailsView(request):
         if form.is_valid():
             logger.info("Form is valid")
             FirstName = form.cleaned_data['FirstName']
+            PassStatus = form.cleaned_data['PassStatus']
             logger.info(f"First Name : {FirstName}")
+            logger.info(f"Pass Status of {FirstName} is {PassStatus}")
         else:
             logger.info("Data entered is invalid ")
         
