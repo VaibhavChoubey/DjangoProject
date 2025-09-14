@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from NewApp.models import NameDetails
-from NewApp.forms import PerformanceDetailsForm
+from NewApp.forms import PerformanceDetailsForm, NameDetailsForm
 import inspect
 import logging
 
@@ -27,9 +27,28 @@ def PerformanceDetailsView(request):
             logger.info("Form is valid")
             FirstName = form.cleaned_data['FirstName']
             PassStatus = form.cleaned_data['PassStatus']
-            logger.info(f"First Name : {FirstName}")
+            logger.info(f"Email : {form.cleaned_data['email']}")
             logger.info(f"Pass Status of {FirstName} is {PassStatus}")
+
         else:
             logger.info("Data entered is invalid ")
         
     return render(request , "PerformanceDetails.html" ,{'form': form} )
+
+def ActionsPageView(request):
+    return render(request , 'ActionsPage.html' )
+
+def AddNewEntryView(request):
+    form = NameDetailsForm()
+    if request.method == 'POST':
+        form = NameDetailsForm(request.POST)
+        if form.is_valid:
+            form.save()
+            return ActionsPageView(request)
+        else:
+            logger.info("form submitted is invalid")
+    return render(request, 'AddNewEntry.html', {'form': form})
+
+def ViewAllEntriesView(request):
+    UserNames = NameDetails.objects.all()
+    return render(request, 'ViewAllEntries.html', {'UserDetails' : UserNames} )

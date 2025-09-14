@@ -22,6 +22,9 @@ from NewApp import views as NewAppViews
 urlpatterns = [
     path('Welcome/', NewAppViews.WelcomePageView),
     path('UserName/', NewAppViews.UserName),
-    path('PerformanceDetails/', NewAppViews.PerformanceDetailsView)
+    path('PerformanceDetails/', NewAppViews.PerformanceDetailsView),
+    path('ActionsPage/' , NewAppViews.ActionsPageView),
+    path('AddNewEntry/', NewAppViews.AddNewEntryView),
+    path('ViewAllEntries/', NewAppViews.ViewAllEntriesView)
 ]
 

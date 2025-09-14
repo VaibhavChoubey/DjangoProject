@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        All Entries
+    </title>
+    <Head>
+        List of all entries added
+    </Head>
+    <body>
+        {% if UserDetails %}
+        <table border="3">
+            <thead>
+                <th bgcolor="yellow">Name</th>
+                <th bgcolor="yellow">Surname</th>
+                <th bgcolor="yellow">Address</th>
+                <th bgcolor="yellow">Qualification</th>    
+            </thead>
+            {% for Names in UserDetails%}
+                <tr>
+                    <td bgcolor="pink" >{{Names.Name}}</td>
+                    <td  bgcolor="pink">{{Names.Surname}}</td>
+                    <td  bgcolor="pink">{{Names.Address}}</td>
+                    <td  bgcolor="pink">{{Names.Qualification}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p> No Names found</p>
+        {% endif %}
+        <a href="/WelcomePage/ActionsPage"> Go back</a></br>
+    </body>
+</html>

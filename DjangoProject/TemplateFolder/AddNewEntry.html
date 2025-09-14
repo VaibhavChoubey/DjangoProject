@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>
+            User Details
+        </title>
+    </head>
+    <body>
+        <h1>
+            Add User details here:
+          <b></b>
+        </h1>
+        <form method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+            </br> 
+            <input type="submit" value="Submit">
+        </body>
+        </form>
+    </body>
+</html>
