@@ -52,3 +52,11 @@ def AddNewEntryView(request):
 def ViewAllEntriesView(request):
     UserNames = NameDetails.objects.all()
     return render(request, 'ViewAllEntries.html', {'UserDetails' : UserNames} )
+
+def DeleteEntryView(request, Name):
+    UserName = NameDetails.objects.get(Name = Name)
+    UserName.delete()
+    return ViewAllEntriesView(request)
+    
+
+
