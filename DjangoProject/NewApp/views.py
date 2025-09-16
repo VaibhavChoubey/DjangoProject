@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from NewApp.models import NameDetails
 from NewApp.forms import PerformanceDetailsForm, NameDetailsForm
+from django.shortcuts import redirect
 import inspect
 import logging
 
@@ -42,7 +43,7 @@ def AddNewEntryView(request):
     form = NameDetailsForm()
     if request.method == 'POST':
         form = NameDetailsForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             return ActionsPageView(request)
         else:
@@ -56,7 +57,21 @@ def ViewAllEntriesView(request):
 def DeleteEntryView(request, Name):
     UserName = NameDetails.objects.get(Name = Name)
     UserName.delete()
-    return ViewAllEntriesView(request)
+    return redirect('view_all_entries')
+
+def UpdateExistingEntryView(request, ObjectName):
+    Name_Instance= NameDetails.objects.get(Name = ObjectName)
+    if request.method == 'POST':
+        form = NameDetailsForm(request.POST, instance = Name_Instance)
+        if form.is_valid():
+            form.save()
+            return redirect('view_all_entries')
+        else:
+            logger.info("form submitted is invalid")
+    else:
+        form = NameDetailsForm(instance = Name_Instance)
+    return render(request, 'UpdateExistingEntry.html', {'form':form})
+
     
 
 

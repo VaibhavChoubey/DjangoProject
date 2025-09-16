@@ -25,7 +25,8 @@ urlpatterns = [
     path('PerformanceDetails/', NewAppViews.PerformanceDetailsView),
     path('ActionsPage/' , NewAppViews.ActionsPageView),
     path('AddNewEntry/', NewAppViews.AddNewEntryView),
-    path('ViewAllEntries/', NewAppViews.ViewAllEntriesView),
-    path('DeleteEntry/<str:Name>', NewAppViews.DeleteEntryView)
+    path('ViewAllEntries/', NewAppViews.ViewAllEntriesView, name='view_all_entries'),
+    path('DeleteEntry/<str:Name>', NewAppViews.DeleteEntryView),
+    path('UpdateEntry/<str:ObjectName>', NewAppViews.UpdateExistingEntryView)
 ]
 
