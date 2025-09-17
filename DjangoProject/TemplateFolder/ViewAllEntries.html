@@ -1,3 +1,5 @@
+
+{% load CustomTemplateFilter %}
 <!DOCTYPE html>
 <html>
     <title>
@@ -17,7 +19,7 @@
             </thead>
             {% for Names in UserDetails%}
                 <tr>
-                    <td bgcolor="pink" >{{Names.Name}}</td>
+                    <td bgcolor="pink" >{{Names.Name | Add_Salutation:"Mr. "}}</td>
                     <td  bgcolor="pink">{{Names.Surname}}</td>
                     <td  bgcolor="pink">{{Names.Address}}</td>
                     <td  bgcolor="pink">{{Names.Qualification}}</td>

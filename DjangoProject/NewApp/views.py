@@ -72,6 +72,7 @@ def UpdateExistingEntryView(request, ObjectName):
         form = NameDetailsForm(instance = Name_Instance)
     return render(request, 'UpdateExistingEntry.html', {'form':form})
 
+
     
 
 
